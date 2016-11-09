@@ -1,7 +1,8 @@
 const { exec } = require('child_process')
 
-module.exports = () => {
-  exec('./restart.sh', (error, stdout, stderr) => {
+module.exports = commitInfo => {
+  const { time, committer } = commitInfo
+  exec(`./restart.sh ${time}, ${committer}`, (error, stdout, stderr) => {
     if (error) {
       console.log('=== EXEC ERROR ===');
       console.error(error);
