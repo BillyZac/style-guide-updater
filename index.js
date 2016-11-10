@@ -13,21 +13,10 @@ app.get('/', function(req, res) {
 })
 
 app.post('/style-guide-updater', function(req, res) {
-  console.log('Received this request:')
-  console.log('========');
-  console.log(req.body.head_commit.author.name)
-  console.log(req.body.head_commit.timestamp)
-  console.log('========');
-
-  // Pretend we're pulling this stuff from req.body, which comes from the webhook
   const commitInfo = {
     authorName: req.body.head_commit.author.name,
     timestamp: req.body.head_commit.timestamp,
-    // committer: 'BillyZac'
   }
-  console.log('commitInfo:');
-  console.log(commitInfo);
-
   restart(commitInfo)
   res.send('ok')
 })
