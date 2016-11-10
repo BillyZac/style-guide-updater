@@ -14,13 +14,15 @@ app.get('/', function(req, res) {
 
 app.post('/style-guide-updater', function(req, res) {
   console.log('Received this request:')
-  console.log(req.body)
+  // console.log(req.body)
 
   // Pretend we're pulling this stuff from req.body, which comes from the webhook
   const commitInfo = {
-    time: '2016-05-03',
-    committer: 'BillyZac'
+    repoName: req.body.name,
+    time: req.body.updated_at,
+    // committer: 'BillyZac'
   }
+  console.log(commitInfo);
 
   restart(commitInfo)
   res.send('ok')
