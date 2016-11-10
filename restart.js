@@ -9,7 +9,7 @@ module.exports = commitInfo => {
 
   fs.writeFileSync('./styles_repo_info.json', JSON.stringify(styles_repo_info))
 
-  exec(`./refresh-style-guide.sh}`, (error, stdout, stderr) => {
+  exec('./refresh-style-guide.sh', (error, stdout, stderr) => {
     if (error) {
       console.log('=== EXEC ERROR ===');
       console.error(error);
