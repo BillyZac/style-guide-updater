@@ -21,8 +21,8 @@ app.post('/style-guide-updater', function(req, res) {
 
   // Pretend we're pulling this stuff from req.body, which comes from the webhook
   const commitInfo = {
-    repoName: req.body.name,
-    time: req.body.updated_at,
+    authorName: req.body.head_commit.author.name,
+    timestamp: req.body.head_commit.timestamp,
     // committer: 'BillyZac'
   }
   console.log('commitInfo:');
