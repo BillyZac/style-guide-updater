@@ -12,7 +12,7 @@ app.get('/', function(req, res) {
   res.send('hey.')
 })
 
-app.post('/', function(req, res) {
+app.post('/style-guide-updater', function(req, res) {
   console.log('Received this request:')
   console.log(req.body)
 
