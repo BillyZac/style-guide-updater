@@ -1,14 +1,10 @@
 const { exec } = require('child_process')
-// const fs = require('fs')
-// const styles_repo_info = require('./styles_repo_info.json')
 
 module.exports = commitInfo => {
-  const { authorName, timestamp } = commitInfo
-  styles_repo_info.authorName = authorName
-  styles_repo_info.timestamp = timestamp
-
-  // fs.writeFileSync('/var/www/styles_repo_info.json', JSON.stringify(styles_repo_info))
-
+  console.log('==================');
+  console.log('Got this commit:');
+  console.log(commitInfo);
+  console.log('==================');
   exec('./refresh-style-guide.sh', (error, stdout, stderr) => {
     if (error) {
       console.log('=== EXEC ERROR ===');
