@@ -16,6 +16,7 @@ app.post('/style-guide-updater', function(req, res) {
   const commitInfo = {
     authorName: req.body.head_commit.author.name,
     timestamp: req.body.head_commit.timestamp,
+    message: req.body.head_commit.message,
   }
   restart(commitInfo)
   res.send('ok')
