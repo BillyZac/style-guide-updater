@@ -7,7 +7,7 @@ module.exports = commitInfo => {
   styles_repo_info.authorName = authorName
   styles_repo_info.timestamp = timestamp
 
-  fs.writeFileSync('./styles_repo_info.json', JSON.stringify(styles_repo_info))
+  fs.writeFileSync('/var/www/styles_repo_info.json', JSON.stringify(styles_repo_info))
 
   exec('./refresh-style-guide.sh', (error, stdout, stderr) => {
     if (error) {
